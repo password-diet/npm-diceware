@@ -1,6 +1,6 @@
 {
   "name": "diceware-password-generator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A diceware based password generator",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,8 @@
   "homepage": "https://github.com/password-diet/npm-diceware#readme",
   "dependencies": {
     "diceware-wordlist-en": "^1.0.0",
+    "diceware-wordlist-jp": "^1.0.1",
+    "diceware-wordlist-swe": "^1.0.1",
     "lodash": "^3.10.1",
     "secure-random": "^1.1.1"
   }

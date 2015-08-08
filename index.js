@@ -2,6 +2,8 @@ var secureRandom = require('secure-random');
 var _ = require('lodash');
 var dw = {};
 dw.en = require('diceware-wordlist-en');
+dw.swe = require('diceware-wordlist-swe');
+dw.jp = require('diceware-wordlist-jp');
 
 function getRandomInt(min, max) {       
     // Create byte array and fill with 1 random number
@@ -40,7 +42,7 @@ function getRandomPassword(options) {
 		'wordcount': 6,
 		'format': 'string',
 	}, options);
-	if (!_.includes(['en'], options.language)) {
+	if (!_.includes(['en', 'swe', 'jp'], options.language)) {
 		throw(new Error("Unsupported language: "+options.language));
 	}
 	var words = [];

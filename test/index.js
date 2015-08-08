@@ -27,6 +27,26 @@ describe('wordlist', function() {
     expect(scapegoat({'format': 'array', 'wordcount': 11}).length).to.equal(11);
   });
 
+  it('should support en', function() {
+    expect(function() {
+      scapegoat({'language': 'en'});
+    }).to.not.throw(Error);
+  });
+
+  it('should support jp', function() {
+    expect(function() {
+      scapegoat({'language': 'jp'});
+    }).to.not.throw(Error);
+  });
+
+
+  it('should support swe', function() {
+    expect(function() {
+      scapegoat({'language': 'swe'});
+    }).to.not.throw(Error);
+  });
+
+
   it('should throw an error if asked for an unsupported language', function() {
     expect(function() {
       scapegoat({'language': 'bogusTalk'});
