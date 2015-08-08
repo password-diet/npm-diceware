@@ -10,7 +10,7 @@ An diceware password generator
 ## Usage
 
   var dwGen = require('diceware-password-generator');  
-  dwGen();		# 'stare too magog guess kirov grout'  
+  dwGen();		// 'stare too magog guess kirov grout'  
 
   dwGen(options)  
   default options:  
