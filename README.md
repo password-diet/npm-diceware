@@ -15,7 +15,7 @@ An diceware password generator
   dwGen(options);
   default options:  
   {  
-  	'language': 'en',	   // currently only en is supported  
+  	'language': 'en',	   // currently only en, swe and jp is supported  
   	'wordcount': 6,  
   	'format': 'string',    // one of [array, string]  
   }  
