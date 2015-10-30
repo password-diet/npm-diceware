@@ -4,11 +4,12 @@ var dw = {};
 dw.en = require('diceware-wordlist-en');
 dw.swe = require('diceware-wordlist-swe');
 dw.jp = require('diceware-wordlist-jp');
+dw.sp = require('diceware-wordlist-sp');
 
-function getRandomInt(min, max) {       
+function getRandomInt(min, max) {
     // Create byte array and fill with 1 random number
-    var byteArray = secureRandom(1, {type: 'Uint8Array'}) 
- 
+    var byteArray = secureRandom(1, {type: 'Uint8Array'})
+
     var range = max - min + 1;
     var max_range = 256;
     if (byteArray[0] >= Math.floor(max_range / range) * range)
@@ -42,7 +43,7 @@ function getRandomPassword(options) {
 		'wordcount': 6,
 		'format': 'string',
 	}, options);
-	if (!_.includes(['en', 'swe', 'jp'], options.language)) {
+	if (!_.includes(['en', 'swe', 'jp', 'sp'], options.language)) {
 		throw(new Error("Unsupported language: "+options.language));
 	}
 	var words = [];

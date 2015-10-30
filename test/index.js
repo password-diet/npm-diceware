@@ -39,13 +39,17 @@ describe('wordlist', function() {
     }).to.not.throw(Error);
   });
 
-
   it('should support swe', function() {
     expect(function() {
       scapegoat({'language': 'swe'});
     }).to.not.throw(Error);
   });
 
+  it('should support sp', function() {
+    expect(function() {
+      scapegoat({'language': 'sp'});
+    }).to.not.throw(Error);
+  });
 
   it('should throw an error if asked for an unsupported language', function() {
     expect(function() {
