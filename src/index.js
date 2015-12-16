@@ -58,4 +58,4 @@ const getRandomPassword = (options) => {
   }
 };
 
-export default getRandomPassword;
+module.exports = getRandomPassword;
