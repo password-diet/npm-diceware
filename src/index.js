@@ -1,5 +1,5 @@
 import secureRandom from 'secure-random';
-import {assign, includes} from 'lodash';
+import {assign, includes, range} from 'lodash';
 
 const dw = {
   en: require('diceware-wordlist-en'),
@@ -11,32 +11,20 @@ const dw = {
 const getRandomInt = (min, max) => {
   // Create byte array and fill with 1 random number
   const byteArray = secureRandom(1, {type: 'Uint8Array'});
-  const range = max - min + 1;
+  const r = max - min + 1;
   const maxRange = 256;
-  if (byteArray[0] >= Math.floor(maxRange / range) * range)
+  if (byteArray[0] >= Math.floor(maxRange / r) * r)
     return getRandomInt(min, max);
-  return min + (byteArray[0] % range);
+  return min + (byteArray[0] % r);
 };
 
-const diceRoll = () => {
-  return getRandomInt(1, 6);
-};
+const diceRoll = () => getRandomInt(1, 6);
 
-const diceSeq = (count) => {
-  const seq = [];
-  for(let i=0; i<count; i++) {
-    seq.push(diceRoll());
-  }
-  return seq.join('');
-};
+const diceSeq = (count) => range(count).map(() => diceRoll()).join('');
 
-const getDices = () => {
-  return diceSeq(5);
-};
+const getDices = () => diceSeq(5);
 
-const getRandomWord = (language) => {
-  return dw[language][getDices()];
-};
+const getRandomWord = (language) => dw[language][getDices()];
 
 const getRandomPassword = (options) => {
   options = assign({
@@ -47,15 +35,8 @@ const getRandomPassword = (options) => {
   if (!includes(['en', 'swe', 'jp', 'sp'], options.language)) {
     throw(new Error(`Unsupported language: ${options.language}`));
   }
-  const words = [];
-  for (var i=0; i<options.wordcount; i++) {
-    words.push(getRandomWord(options.language));
-  }
-  if (options.format === 'array') {
-    return words;
-  } else {
-    return words.join(' ');
-  }
+  const words = range(options.wordcount).map(() => getRandomWord(options.language));
+  return (options.format === 'array') ? words : words.join(' ');
 };
 
 module.exports = getRandomPassword;
