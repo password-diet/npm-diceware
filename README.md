@@ -15,6 +15,7 @@ A diceware generator
 npm i -S diceware-generator
 ```
 
+[Try on Tonic](https://tonicdev.com/npm/diceware-generator)
 ## Usage
 ```javascript
 import dwGen from 'diceware-generator';
