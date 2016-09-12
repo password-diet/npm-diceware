@@ -31,6 +31,7 @@
     "diceware-wordlist-jp": "^1.0.1",
     "diceware-wordlist-sp": "^1.0.0",
     "diceware-wordlist-swe": "^1.0.1",
+    "diceware-wordlist-en-eff": "^1.0.0",
     "lodash": "^4.12.0",
     "secure-random": "^1.1.1"
   },

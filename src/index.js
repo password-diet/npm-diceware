@@ -7,7 +7,8 @@ const dw = {
   en: require('diceware-wordlist-en'),
   swe: require('diceware-wordlist-swe'),
   jp: require('diceware-wordlist-jp'),
-  sp: require('diceware-wordlist-sp')
+  sp: require('diceware-wordlist-sp'),
+  enEFF: require('diceware-wordlist-en-eff')
 };
 
 const getRandomInt = (min, max) => {
@@ -34,7 +35,7 @@ const getRandomPassword = options => {
     'wordcount': 6,
     'format': 'string'
   }, options);
-  if (!_.includes(['en', 'swe', 'jp', 'sp'], options.language)) {
+  if (!_.includes(['en', 'swe', 'jp', 'sp', 'enEFF'], options.language)) {
     throw(new Error(`Unsupported language: ${options.language}`));
   }
   const words = _.range(options.wordcount).map(() => getRandomWord(options.language));

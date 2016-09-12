@@ -22,9 +22,9 @@ npm i -S diceware-generator
 import dwGen from 'diceware-generator';
 dwGen();  // 'stare too magog guess kirov grout'
 dwGen(options);
-default options:  
+default options:
 {
-	'language': 'en',  // currently only en, swe, jp and sp is supported
+	'language': 'en',  // currently only en, swe, jp, sp and enEFF are supported
 	'wordcount': 6,
 	'format': 'string',  // one of [array, string]
 }
