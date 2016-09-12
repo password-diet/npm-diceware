@@ -40,7 +40,6 @@
     "coveralls": "^2.11.12",
     "eslint": "^3.5.0",
     "istanbul": "^0.4.5",
-    "js-combinatorics": "^0.5.2",
     "mocha": "^3.0.2"
   },
   "eslintConfig": {
