@@ -1,7 +1,9 @@
 'use strict';
 
 const secureRandom = require('secure-random');
-const _ = require('lodash');
+const assign = require('lodash/assign');
+const includes = require('lodash/includes');
+const range = require('lodash/range');
 
 const dw = {
   en: require('diceware-wordlist-en'),
@@ -23,22 +25,22 @@ const getRandomInt = (min, max) => {
 
 const diceRoll = () => getRandomInt(1, 6);
 
-const diceSeq = count => _.range(count).map(() => diceRoll()).join('');
+const diceSeq = count => range(count).map(() => diceRoll()).join('');
 
 const getDices = () => diceSeq(5);
 
 const getRandomWord = language => dw[language][getDices()];
 
 const getRandomPassword = options => {
-  options = _.assign({
+  options = assign({
     'language': 'en',
     'wordcount': 6,
     'format': 'string'
   }, options);
-  if (!_.includes(['en', 'swe', 'jp', 'sp', 'enEFF'], options.language)) {
+  if (!includes(['en', 'swe', 'jp', 'sp', 'enEFF'], options.language)) {
     throw(new Error(`Unsupported language: ${options.language}`));
   }
-  const words = _.range(options.wordcount).map(() => getRandomWord(options.language));
+  const words = range(options.wordcount).map(() => getRandomWord(options.language));
   return (options.format === 'array') ? words : words.join(' ');
 };
 
