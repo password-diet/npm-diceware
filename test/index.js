@@ -52,6 +52,12 @@ describe('wordlist', () => {
     }).to.not.throw(Error);
   });
 
+  it('should support enEFF', () => {
+    expect(() => {
+      dwGen({'language': 'enEFF'});
+    }).to.not.throw(Error);
+  });
+
   it('should throw an error if asked for an unsupported language', () => {
     expect(() => {
       dwGen({'language': 'bogusTalk'});

@@ -4,9 +4,13 @@
   "description": "A diceware generator",
   "main": "src",
   "scripts": {
-    "pretest": "eslint src",
+    "pretest": "eslint .",
     "test": "istanbul cover _mocha",
-    "coveralls": "coveralls < coverage/lcov.info"
+    "coveralls": "coveralls < coverage/lcov.info",
+    "codeclimate": "codeclimate-test-reporter < coverage/lcov.info",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish"
   },
   "engines": {
     "node": ">=4"
@@ -31,16 +35,18 @@
     "diceware-wordlist-jp": "^1.0.1",
     "diceware-wordlist-sp": "^1.0.0",
     "diceware-wordlist-swe": "^1.0.1",
-    "lodash": "^4.12.0",
+    "diceware-wordlist-en-eff": "^1.0.0",
+    "lodash": "^4.15.0",
     "secure-random": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.9",
-    "eslint": "^3.0.0",
-    "istanbul": "^0.4.3",
-    "js-combinatorics": "^0.5.2",
-    "mocha": "^3.0.1"
+    "codeclimate-test-reporter": "^0.3.3",
+    "coveralls": "^2.11.12",
+    "eslint": "^3.5.0",
+    "generate-changelog": "^1.0.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2"
   },
   "eslintConfig": {
     "env": {
