@@ -4,13 +4,18 @@ const secureRandom = require('secure-random');
 const assign = require('lodash/assign');
 const includes = require('lodash/includes');
 const range = require('lodash/range');
+const en = require('diceware-wordlist-en');
+const swe = require('diceware-wordlist-swe');
+const jp = require('diceware-wordlist-jp');
+const sp = require('diceware-wordlist-sp');
+const enEFF = require('diceware-wordlist-en-eff');
 
 const dw = {
-  en: require('diceware-wordlist-en'),
-  swe: require('diceware-wordlist-swe'),
-  jp: require('diceware-wordlist-jp'),
-  sp: require('diceware-wordlist-sp'),
-  enEFF: require('diceware-wordlist-en-eff')
+  en: en,
+  swe: swe,
+  jp: jp,
+  sp: sp,
+  enEFF: enEFF
 };
 
 const getRandomInt = (min, max) => {
