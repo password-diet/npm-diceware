@@ -1,22 +1,6 @@
 'use strict';
 
 const secureRandom = require('secure-random');
-const assign = require('lodash/assign');
-const includes = require('lodash/includes');
-const range = require('lodash/range');
-const en = require('diceware-wordlist-en');
-const swe = require('diceware-wordlist-swe');
-const jp = require('diceware-wordlist-jp');
-const sp = require('diceware-wordlist-sp');
-const enEFF = require('diceware-wordlist-en-eff');
-
-const dw = {
-  en: en,
-  swe: swe,
-  jp: jp,
-  sp: sp,
-  enEFF: enEFF
-};
 
 const getRandomInt = (min, max) => {
   // Create byte array and fill with 1 random number
@@ -30,20 +14,24 @@ const getRandomInt = (min, max) => {
 
 const diceRoll = () => getRandomInt(1, 6);
 
+const range = max => Array.apply(null, Array(max)).map((_, i) => i);
+
 const diceSeq = count => range(count).map(() => diceRoll()).join('');
 
 const getDices = () => diceSeq(5);
 
-const getRandomWord = language => dw[language][getDices()];
+const getRandomWord = language => language[getDices()];
 
 const getRandomPassword = options => {
-  options = assign({
-    'language': 'en',
+  options = Object.assign({
     'wordcount': 6,
     'format': 'string'
   }, options);
-  if (!includes(['en', 'swe', 'jp', 'sp', 'enEFF'], options.language)) {
-    throw(new Error(`Unsupported language: ${options.language}`));
+  if (typeof options.language !== 'object') {
+    throw(new Error('Language empty'));
+  }
+  if (Object.keys(options.language).length !== 7776) {
+    throw(new Error('Language length wrong'));
   }
   const words = range(options.wordcount).map(() => getRandomWord(options.language));
   return (options.format === 'array') ? words : words.join(' ');
