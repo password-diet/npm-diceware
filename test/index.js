@@ -2,65 +2,56 @@
 
 const expect = require('chai').expect;
 const dwGen = require('../src');
+const enEFF = require('diceware-wordlist-en-eff');
 
 describe('wordlist', () => {
-  it('should return a string by default', () => {
-    expect(dwGen()).to.be.a('string');
+  it('should return a error', () => {
+    const fn = () => dwGen();
+    expect(fn).to.throw(/Language empty/);
   });
 
-  it('should return 6 words by default', () => {
-    expect(dwGen().split(' ').length).to.equal(6);
+  it('should return a error by incorrect language', () => {
+    const dummyLang = {'11111': 'hello'};
+    const options = {
+      language: dummyLang
+    };
+    const fn = () => dwGen(options);
+    expect(fn).to.throw(/Language length wrong/);
   });
 
-  it('should return an array if requested', () => {
-    expect(dwGen({'format': 'array'})).to.be.a('array');
+  it('should return a string with 6 words by default', () => {
+    const options = {language: enEFF};
+    const words = dwGen(options);
+    expect(words).to.be.a('string');
+    expect(words).match(/^\w+(\s\w+){5}$/);
   });
 
-  it('should return an 6 item array in array mode by default', () => {
-    expect(dwGen({'format': 'array'}).length).to.equal(6);
+  it('should return an array with length 6 if requested', () => {
+    const options = {
+      language: enEFF,
+      format: 'array'
+    };
+    const words = dwGen(options);
+    expect(words).to.be.a('array');
+    expect(words).to.have.length.of.at.least(6);
   });
 
   it('should obey requested length in string mode', () => {
-    expect(dwGen({'wordcount': 11}).split(' ').length).to.equal(11);
+    const options = {
+      language: enEFF,
+      wordcount: 11
+    };
+    const words = dwGen(options);
+    expect(words).match(/^\w+(\s\w+){10}$/);
   });
 
   it('should obey requested length in array mode', () => {
-    expect(dwGen({'format': 'array', 'wordcount': 11}).length).to.equal(11);
-  });
-
-  it('should support en', () => {
-    expect(() => {
-      dwGen({'language': 'en'});
-    }).to.not.throw(Error);
-  });
-
-  it('should support jp', () => {
-    expect(() => {
-      dwGen({'language': 'jp'});
-    }).to.not.throw(Error);
-  });
-
-  it('should support swe', () => {
-    expect(() => {
-      dwGen({'language': 'swe'});
-    }).to.not.throw(Error);
-  });
-
-  it('should support sp', () => {
-    expect(() => {
-      dwGen({'language': 'sp'});
-    }).to.not.throw(Error);
-  });
-
-  it('should support enEFF', () => {
-    expect(() => {
-      dwGen({'language': 'enEFF'});
-    }).to.not.throw(Error);
-  });
-
-  it('should throw an error if asked for an unsupported language', () => {
-    expect(() => {
-      dwGen({'language': 'bogusTalk'});
-    }).to.throw(Error);
+    const options = {
+      language: enEFF,
+      format: 'array',
+      wordcount: 11
+    };
+    const words = dwGen(options);
+    expect(words).to.have.length.of.at.least(11);
   });
 });
