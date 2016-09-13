@@ -13,20 +13,32 @@ A diceware generator
 ## Installation
 
 ```bash
+# Install core package
 npm i -S diceware-generator
+# Install some diceware wordlist
+npm i -S diceware-wordlist-en
+# or
+npm i -S diceware-wordlist-jp
+# or
+npm i -S diceware-wordlist-sp
+# or
+npm i -S diceware-wordlist-swe
+# or
+npm i -S diceware-wordlist-en-eff
 ```
 
 [Try on Tonic](https://tonicdev.com/npm/diceware-generator)
 ## Usage
 ```javascript
 const dwGen = require('diceware-generator');
-dwGen();  // 'stare too magog guess kirov grout'
+const enEFF = require('diceware-wordlist-en-eff');
+
 const options = {
-  language: 'en',  // Default 'en'. Currently only en, swe, jp, sp and enEFF are supported
+  language: enEFF,
   wordcount: 6, // Default 6
-	format: 'string',  // Default 'string'. One of [array, string]
+  format: 'string', // Default 'string'. One of [array, string]
 }
-dwGen(options);
+const pass = dwGen(options);
+console.log(pass);
 // "belle visit wag tung podge phase"
-*/
 ```
