@@ -1,3 +1,13 @@
+## 3.0.0 (2016-9-13)
+
+##### Chores
+
+* **docs:** Update instructions and example ([db5bc586](https://github.com/lgaticaq/diceware-generator/commit/db5bc586710667b6f5b3ab1d0239ba589dea052b))
+* **example:** Update example ([c9897af6](https://github.com/lgaticaq/diceware-generator/commit/c9897af61c8ee4f4d65a5e8524017042cac804b2))
+* **tests:** Update tests ([c21cdb08](https://github.com/lgaticaq/diceware-generator/commit/c21cdb08b9b0289d64db4ed17a86c184eedc5730))
+* **package:** Remove unused dependencies ([e045b392](https://github.com/lgaticaq/diceware-generator/commit/e045b392392ddee8e0a58394182a462515416938))
+* **src:** Remove require diceware wordlist ([ede792e8](https://github.com/lgaticaq/diceware-generator/commit/ede792e8924c94220923f3f882782bf257f78897))
+
 ### 2.1.0 (2016-9-12)
 
 ##### Chores
