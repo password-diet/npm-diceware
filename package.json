@@ -31,18 +31,13 @@
   },
   "homepage": "https://github.com/lgaticaq/diceware-generator#readme",
   "dependencies": {
-    "diceware-wordlist-en": "^1.0.0",
-    "diceware-wordlist-jp": "^1.0.1",
-    "diceware-wordlist-sp": "^1.0.0",
-    "diceware-wordlist-swe": "^1.0.1",
-    "diceware-wordlist-en-eff": "^1.0.0",
-    "lodash": "^4.15.0",
     "secure-random": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.3.3",
     "coveralls": "^2.11.12",
+    "diceware-wordlist-en-eff": "^1.0.0",
     "eslint": "^3.5.0",
     "generate-changelog": "^1.0.2",
     "istanbul": "^0.4.5",
