@@ -1,7 +1,8 @@
 const dwGen = require('diceware-generator');
+const enEFF = require('diceware-wordlist-en-eff');
 
 const options = {
-  language: 'en',
+  language: enEFF,
   wordcount: 6,
   format: 'string'
 }
