@@ -40,5 +40,5 @@ const options = {
 }
 const pass = dwGen(options);
 console.log(pass);
-// "belle visit wag tung podge phase"
+// "lavender lunacy quickness ladybug playful reaffirm"
 ```
