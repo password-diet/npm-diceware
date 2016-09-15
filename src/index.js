@@ -18,9 +18,7 @@ const range = max => Array.apply(null, Array(max)).map((_, i) => i);
 
 const diceSeq = count => range(count).map(() => diceRoll()).join('');
 
-const getDices = () => diceSeq(5);
-
-const getRandomWord = language => language[getDices()];
+const getRandomWord = language => language[diceSeq(5)];
 
 const getRandomPassword = options => {
   options = Object.assign({
