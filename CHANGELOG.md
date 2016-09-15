@@ -1,3 +1,9 @@
+#### 3.0.1 (2016-9-15)
+
+##### Bug Fixes
+
+* **babel:** Add babel to fix use with webpack ([223d2214](https://github.com/lgaticaq/diceware-generator/commit/223d221449f238a72627c98d58c52db0e4e061ce))
+
 ## 3.0.0 (2016-9-13)
 
 ##### Chores
