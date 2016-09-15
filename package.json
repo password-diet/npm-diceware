@@ -1,6 +1,6 @@
 {
   "name": "diceware-generator",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A diceware generator",
   "main": "lib",
   "scripts": {
